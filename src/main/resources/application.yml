@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: kafka
+
+logging:
+  file: /tsf-iov-logs/driver-behavior/root.log
+  level:
+    root: INFO
+
+kafka-consumer:
+  bootstrap_servers: "localhost:9092"
+  group_id: "group"
+  enable_auto_commit: "true"
+  auto_commit_interval_ms: "1000"
+  session_timeout_ms: "30000"
+  key_deserializer: "org.apache.kafka.common.serialization.StringDeserializer"
+  value_deserializer: "org.apache.kafka.common.serialization.StringDeserializer"
+
+#============== kafka ===================
+# 指定kafka 代理地址，可以多个
+kafka:
+  bootstrap-servers: localhost:9092
+  producer:
+    batch-size: 16384
+    buffer-memory: 33554432
+    retries: 0
+    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    value-serializer: org.apache.kafka.common.serialization.StringSerializer
